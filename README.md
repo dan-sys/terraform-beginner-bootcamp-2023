@@ -19,3 +19,28 @@ different terminals are not aware of env vars that are set in each other. to hav
 
 aws cli is istalled using the bash script [`./bin/install_aws_cli`](./bin/install_aws_cli)
 
+### Terraform basics
+
+important website to remember is the terraform registryfound at [registry.terraform.io](https://registry.terraform.io/) . there you will find providers and modules.
+
+- **Providers** are interfaces to APIs that allow us to create resources in terraform
+- **Modules** means of making large amount of terraform code modular, portable and sharable
+
+### Terraform console
+
+we can see the list of all terraform commands in our console by typing `terraform` and enter
+
+### Terraform Init
+
+At the start of a new project, `terraform init` is run to download the binaries for the terraform providers that will be used in the project
+
+### Terraform Plan
+
+`terraform plan` command creates a changeset, about the state of our infrastructure and what will be changed.
+
+### Terraform Apply
+
+This will run the plan from above and pass the chnageset to be executed by terraform. An approval prompt requiring `yes` is required to confirm apply.
+
+To automatically approve an apply, you can add the following arguments to the `terraform apply` command : `terraform apply --auto-approve`
+

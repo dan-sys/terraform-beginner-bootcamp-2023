@@ -15,3 +15,7 @@ we can list all environment variables using the `env` command, these can be filt
 
 different terminals are not aware of env vars that are set in each other. to have a globally available env var that can persist across different and future terminals, you need to set the env var in your bash profile `.bash_profile`
 
+### aws cli installation
+
+aws cli is istalled using the bash script [`./bin/install_aws_cli`](./bin/install_aws_cli)
+

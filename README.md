@@ -5,3 +5,13 @@
 we set up the installation procedure in the install_terraform_cli file in the bin folder due to changes in the gpg keyring changes. therefore a more recent terraform installation was put in place and automated by placing it in the [gitpod.yml](.gitpod.yml) file
 
 to make your [gitpod.yml](.gitpod.yml) file run the tasks contained in it at every restart of a stopped environment, use the **before** keyword and not the **init** keyword
+
+### working with env vars
+
+we can list all environment variables using the `env` command, these can be filtered by specific keywords by piping the env command with the `grep` command as follows:
+`env | grep AWS`
+
+### scoping of env vars
+
+different terminals are not aware of env vars that are set in each other. to have a globally available env var that can persist across different and future terminals, you need to set the env var in your bash profile `.bash_profile`
+

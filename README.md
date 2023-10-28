@@ -47,3 +47,27 @@ To automatically approve an apply, you can add the following arguments to the `t
 ### Terraform Destroy
 
 This will destroy created resources. The auto approve flag can also be added to this command. e.g. `terraform destroy--auto-approve`
+
+### Issues with Terraform Cloud Login via Gitpod Workspace
+
+The `terraform login` command to connect your gitpod local development env to the terraform cloud does not work as advertised. Pressing the `P` key gives you access to the link where you can go generate the required token to authenticate the login. Upon the token generation, the workaround is to create a credentials.trfc.json file manually.
+
+``` sh
+touch /home/gitpod/.terraform.d/credentials.tfrc.json
+```
+after which you can open the file using
+ 
+``` sh
+open /home/gitpod/.terraform.d/credentials.tfrc.json
+```
+and then provide the following json structure in the file 
+
+```json
+{
+    "credentials":{
+        "app.terraform.io":{
+            "token": "YourToeknGoesHereblahblahblah"
+        }
+    }
+}
+```

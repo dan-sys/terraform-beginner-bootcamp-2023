@@ -71,3 +71,4 @@ and then provide the following json structure in the file
     }
 }
 ```
+This workaround process can be automated by using a bash script that can be found in [bin/generate_tfrc_cred](bin/generate_tfrc_cred)

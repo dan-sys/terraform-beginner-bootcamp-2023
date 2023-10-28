@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+if [ -z "$TERRAFORM_CLOUD_TOKEN" ]; then
+    echo "Error: TERRAFORM_CLOUD_TOKEN env var not found"
+    exit 1
+fi
+
+rm -r /home/gitpod/.terraform.d
+
+mkdir /home/gitpod/.terraform.d
+touch /home/gitpod/.terraform.d/credentials.tfrc.json
+
+cat > /home/gitpod/.terraform.d/credentials.tfrc.json << EOF
+{
+    "credentials":{
+        "app.terraform.io": {
+            "token": "$TERRAFORM_CLOUD_TOKEN"
+        }
+    }
+}
+EOF
+
+echo "credentials.tfrc.json has been generated."

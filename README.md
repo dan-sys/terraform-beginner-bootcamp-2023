@@ -72,3 +72,23 @@ and then provide the following json structure in the file
 }
 ```
 This workaround process can be automated by using a bash script that can be found in [bin/generate_tfrc_cred](bin/generate_tfrc_cred)
+
+#### Setting an alias in bash profile
+
+An alias can be set for a command in the `bash_profile` file which can be accessed as follows
+
+``` sh
+open ~/.bash_profile
+```
+append to the file this command to set the alias wanted e.g.
+
+``` sh
+alias tf="terraform"
+```
+this means that `tf` is now set as an alias for the `terraform` command. Remember to reload your shell after modifications by running
+
+``` sh
+source ~/.bash_profile
+```
+
+This process can also be automated using a bash script that can be found in the [bin/set_tf_alias](bin/set_tf_alias)

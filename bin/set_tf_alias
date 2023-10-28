@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+#check if alias already exists in the .bash_profile file
+
+grep -q 'alias tf="terraform"' ~/.bash_profile
+
+# the $? is a special variable in bash that holds the exit status of the last command executed
+# so in this case it will hold the exit status of the grep command
+if [ $? -ne 0 ]; then
+    echo 'alias tf="terraform"' >> ~/.bash_profile
+    echo "Alias set successfully"
+else
+    echo "this alias already exists in the .bash_profile"
+fi
+
+source ~/.bash_profile

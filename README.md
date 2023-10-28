@@ -44,3 +44,6 @@ This will run the plan from above and pass the chnageset to be executed by terra
 
 To automatically approve an apply, you can add the following arguments to the `terraform apply` command : `terraform apply --auto-approve`
 
+### Terraform Destroy
+
+This will destroy created resources. The auto approve flag can also be added to this command. e.g. `terraform destroy--auto-approve`

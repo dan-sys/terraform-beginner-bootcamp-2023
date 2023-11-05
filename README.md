@@ -1,5 +1,20 @@
 # Terraform Beginner Bootcamp 2023
 
+## Table of Content
+
+- [Installing Terraform CLI](#install-the-terraform-cli)
+- [Working with env vars](#working-with-env-vars)
+- [Env var scope](#scoping-of-env-vars)
+- [AWS CLI installation](#aws-cli-installation)
+- [Terraform basics](#terraform-basics)
+- [Terraform Console](#terraform-console)
+- [Terraform Init](#terraform-init)
+- [Terraform Plan](#terraform-plan)
+- [Terraform Apply](#terraform-apply)
+- [Terraform Destroy](#terraform-destroy)
+- [Terraform Issues with Gitpod](#issues-with-terraform-cloud-login-via-gitpod-workspace)
+- [Setting alias using bash](#setting-an-alias-in-bash-profile)
+
 ### install the terraform cli
 
 we set up the installation procedure in the install_terraform_cli file in the bin folder due to changes in the gpg keyring changes. therefore a more recent terraform installation was put in place and automated by placing it in the [gitpod.yml](.gitpod.yml) file

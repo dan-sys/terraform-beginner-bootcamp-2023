@@ -1,5 +1,12 @@
 
 terraform {
+  cloud {
+    organization = "dannybolu"
+
+    workspaces {
+      name = "terra-infrastructure"
+    }
+  }
   required_providers {
     random = {
       source = "hashicorp/random"
@@ -12,11 +19,9 @@ terraform {
   }
 }
 
-
 provider "aws" {
   # Configuration options
 }
-
 
 provider "random" {
   # Configuration options
@@ -34,7 +39,6 @@ resource "aws_s3_bucket" "test_bucket" {
 
   tags = {
     Name        = "My test buckett"
-
   }
 }
 

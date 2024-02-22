@@ -45,7 +45,9 @@ This changeset is then passed to the `terraform apply` command.
 `terraform apply` as implied executes the changeset generated from running terraform plan. It also creates the terraform.tfstate file which is the statefile (describes the current state of the infrastructure, it should not be modified by user or commited to a repository as it an contain sensitive info) 
 To auto approve terraform apply, add the option to the command `terraform apply --auto-approve`
 
+###### terraform destroy
 
+This command `terraform destroy` destroys the resources created by the apply command. It is irreversible and requires an approval. To auto approve, add the auto-approve flag `terraform destroy --auto-approve`
 
 
 

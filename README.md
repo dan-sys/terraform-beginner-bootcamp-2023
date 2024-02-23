@@ -68,6 +68,10 @@ then create and open a file name [credentials.tfrc.json](home/gitpod/.terraform.
 }
 ```
 
+This process has been automated with a bash script (/bin/generate_credentials.tfrc_json)[./bin/generate_credentials.tfrc_json]. The script checks that the `TERRAFORM_CLOUD_TOKEN` exists as an environment variable, it also checks for the directory required.
+
+If the directory exists the credentials files is generated with the token included in it.
+
 
 
 

@@ -1,5 +1,11 @@
 # Terraform Beginner Bootcamp 2023
 
+## Table of Content
+
+- [Semantic Versioning](#semantic-versioning)
+- [Installing the Terraform CLI](#install-terraform-cli)
+    - [Automating installation with BASH](#automating-the-installation)
+
 ## Semantic Versioning
 
 In this project, semantic versioning will be used for its tagging. More info on what is semantic versioning can be found on [semver.org](https://semver.org)
@@ -12,6 +18,7 @@ The general format:
 
 Follow the instruction on [developer.hashicorp.com](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
+#### Automating the installation
 Copy all the bash commands into a single file located in our ([./bin](./bin/install_tf_cli)).bin directory, to make a bash script for better portability. Make the script executable and invoke it from the ([gitpod.yml](.gitpod.yml))
 
 

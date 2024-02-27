@@ -6,7 +6,7 @@
 - [Install Terraform CLI](#install-terraform-cli)
     + [Automating the installation](#automating-the-installation)
 - [Install AWS CLI](#install-aws-cli)
-    + [Terraform Basics](#terraform-basics)
+- [Terraform Basics](#terraform-basics)
       - [Terraform Commands](#terraform-commands)
         * [terraform init](#terraform-init)
         * [terraform plan](#terraform-plan)
@@ -23,7 +23,7 @@ The general format:
 
 **MAJOR.MINOR.PATCH** e.g `1.0.1`
 
-### Install Terraform CLI
+## Install Terraform CLI
 
 Follow the instruction on [developer.hashicorp.com](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
@@ -31,18 +31,18 @@ Follow the instruction on [developer.hashicorp.com](https://developer.hashicorp.
 Copy all the bash commands into a single file located in our ([./bin](./bin/install_tf_cli)).bin directory, to make a bash script for better portability. Make the script executable and invoke it from the ([gitpod.yml](.gitpod.yml))
 
 
-### Install AWS CLI
+## Install AWS CLI
 
 The aws cli is automated in a bash script [/bin/install_aws_cli](./bin/install_aws_cli). Further instructions can be found on the aws documentation page.
 
-#### Terraform Basics
+## Terraform Basics
 
 Terraform providers and modules can be obtained from the Terraform registry at [registry.terraform.io](https://registry.terraform.io/)
 
 - **Providers** is an interface to APIs (e.g AWS, AZURE, Kubernetes etc) that are available for creating cloud resources
 - **Modules** are templates to make terraform configurations more resuable and portable
 
-##### Terraform Commands
+#### Terraform Commands
 
 The basic set up of using Terraform is 3 main commands
 

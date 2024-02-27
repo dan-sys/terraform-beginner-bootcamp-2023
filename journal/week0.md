@@ -4,10 +4,10 @@
 
 - [Semantic Versioning](#semantic-versioning)
 - [Install Terraform CLI](#install-terraform-cli)
-    + [Automating the installation](#automating-the-installation)
+    * [Automating the installation](#automating-the-installation)
 - [Install AWS CLI](#install-aws-cli)
 - [Terraform Basics](#terraform-basics)
-      - [Terraform Commands](#terraform-commands)
+    + [Terraform Commands](#terraform-commands)
         * [terraform init](#terraform-init)
         * [terraform plan](#terraform-plan)
         * [terraform apply](#terraform-apply)

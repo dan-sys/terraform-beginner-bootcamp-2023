@@ -3,9 +3,9 @@
 ## Table of Content
 
 - [Semantic Versioning](#semantic-versioning)
-  * [Install Terraform CLI](#install-terraform-cli)
+- [Install Terraform CLI](#install-terraform-cli)
     + [Automating the installation](#automating-the-installation)
-  * [Install AWS CLI](#install-aws-cli)
+- [Install AWS CLI](#install-aws-cli)
     + [Terraform Basics](#terraform-basics)
       - [Terraform Commands](#terraform-commands)
         * [terraform init](#terraform-init)

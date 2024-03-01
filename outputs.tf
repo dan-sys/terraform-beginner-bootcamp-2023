@@ -1,4 +1,4 @@
 
-output "rand_bucket_name"{
-    value = random_string.rnd_bucket_name.result
+output "bucket_name"{
+    value = aws_s3_bucket.website_bucket.bucket
 }

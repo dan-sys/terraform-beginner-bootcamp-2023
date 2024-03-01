@@ -1,12 +1,11 @@
 
 terraform {
-  cloud {
-    organization = "dannybolu"
-
-    workspaces {
-      name = "terra-infrastructure"
-    }
-  }
+#  cloud {
+#    organization = "dannybolu"
+#    workspaces {
+#      name = "terra-infrastructure"
+#    }
+#  }
   required_providers {
     random = {
       source = "hashicorp/random"

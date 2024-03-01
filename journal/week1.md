@@ -52,3 +52,15 @@ similar to the terraform.tfvars file but special ... to be filled in later
 #### order of terraform variables
 
 The different ways of passing terraform variables have orders of precedence with the `-var` flag having the highest precedence.
+
+## Dealing with Configuration Drift
+
+### Fix Missing Resources with Terraform Import
+
+[Terraform Import](https://developer.hashicorp.com/terraform/cli/commands/import)
+
+Using `terraform import` command you can retrieve resources if the cloud resource supports an import. Example `terraform import aws_s3_bucket.bucket bucket-name`
+
+### Fix Manual Configuration
+ 
+to be filled in later

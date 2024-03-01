@@ -64,3 +64,34 @@ Using `terraform import` command you can retrieve resources if the cloud resourc
 ### Fix Manual Configuration
  
 to be filled in later
+
+### Terraform Refresh
+
+The `-refresh-only` flag which can be used with a `terraform plan` or `terraform apply` is useful for when you make changes to the configuration but do not want to have any modification to the deployed infrastructure. This flag updates your state file while keeping your infrastructure intact. For example 
+`terraform apply -refresh-only auto-approve`
+
+## Terraform Modules
+
+### Module Structure
+
+It is preferable to have a `modules` directory when locally dveloping modules.
+
+### Passing Input Variables to Modules
+
+First and foremost, the module has to declare the terraform variables it requires in its own `variables.tf` file. After these variables can then be referenced whenever the module is being used. Example of a loacl module presented below:
+
+```terraform
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  bucket_name = var.bucket_name
+  bucket_tag = var.bucket_tag
+}
+```
+
+### Modules sources
+
+Different ways of using a terraform module in a project, it can be imported via the following sources:
+
+- locally
+- Github
+- Terraform Registry

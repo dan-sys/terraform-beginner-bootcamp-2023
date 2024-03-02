@@ -142,3 +142,11 @@ locals {
   s3_origin_id = "MyS3Origin"
 }
  ```
+
+ ### Changing Resource Lifecycle
+
+ [Lifecycle argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle)
+
+ ### Terraform Data
+
+ [Terraform Data](https://developer.hashicorp.com/terraform/language/resources/terraform-data)

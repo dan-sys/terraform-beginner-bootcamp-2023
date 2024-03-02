@@ -15,3 +15,16 @@ resource "aws_s3_bucket" "website_bucket" {
     BucketTag       = var.bucket_tag
   }
 }
+
+resource "aws_s3_bucket_website_configuration" "static_web_host" {
+  bucket = aws_s3_bucket.website_bucket.bucket
+
+  index_document {
+    suffix = "index.html"
+  }
+
+  error_document {
+    key = "error.html"
+  }
+  
+}

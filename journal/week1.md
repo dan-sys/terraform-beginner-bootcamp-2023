@@ -126,3 +126,19 @@ validation {
       error_message = "The path provided for this error.html does not exist."
     }
  ```
+
+ ## Terraform Data Sources
+
+Using this block, it is possible to source data from cloud resources. This is useful for referencing existing cloud resources without importing them.
+
+[Data Sources](https://developer.hashicorp.com/terraform/language/data-sources)
+
+ ### Terraform Locals
+
+ Locals allow us to define local variables. There are useful for when there is a need to transform data into another format and have referenced a variable.
+
+ ```terraform
+locals {
+  s3_origin_id = "MyS3Origin"
+}
+ ```

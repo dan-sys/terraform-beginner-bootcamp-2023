@@ -95,3 +95,34 @@ Different ways of using a terraform module in a project, it can be imported via 
 - locally
 - Github
 - Terraform Registry
+
+## Working with Files in Terraform
+
+### Path Variables
+
+In Terraform, a special variable `path` exists that allows us to reference local paths in our directory:
+ - path.module : gets the path for the current module
+ - path.root : gets the path for the root module
+
+ More information can be found here [Special Path Variable](https://developer.hashicorp.com/terraform/language/expressions/references#filesystem-and-workspace-info)
+
+ Example
+ ``` terraform
+resource "aws_s3_object" "index_object" {
+  bucket = aws_s3_bucket.website_bucket.bucket
+  key    = "index.html"
+  source = "${path.root}/public/index.html"
+
+}
+ ```
+
+ ### Validating Path VAriables
+
+ Using the `fileexists` conditional expression, it is possibale to validate a filepath that is entered by the user. Example
+
+ ```terraform
+validation {
+      condition = fileexists(var.error_html_filepath)
+      error_message = "The path provided for this error.html does not exist."
+    }
+ ```

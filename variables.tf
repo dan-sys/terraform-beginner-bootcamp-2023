@@ -6,3 +6,11 @@ variable "bucket_name" {
 variable "bucket_tag" {
     type = string
 }
+
+variable "index_html_filepath" {
+  type = string
+}
+
+variable "error_html_filepath" {
+  type = string
+}

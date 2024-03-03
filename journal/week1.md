@@ -150,3 +150,24 @@ locals {
  ### Terraform Data
 
  [Terraform Data](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
+
+ ## Provisioners
+
+Provisoners allow you to execute command on provisoned cloud infrastructure. They are not recommended for use by Hashicorp as Terraform is not designed to be a configuration Management tool. Better tools such as Ansible, Puppet exist for this purpose.
+
+[Terraform Provisoners](https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax)
+
+ ### Local-Exec
+
+ This block allows you to execute the command on the machine running the terraform commands. More [info here](https://developer.hashicorp.com/terraform/language/resources/provisioners/local-exec)
+
+ ```terraform
+resource "aws_instance" "web" {
+  # ...
+
+  provisioner "local-exec" {
+    command = "echo ${self.private_ip} >> private_ips.txt"
+  }
+}
+
+ ```

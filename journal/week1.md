@@ -169,5 +169,18 @@ resource "aws_instance" "web" {
     command = "echo ${self.private_ip} >> private_ips.txt"
   }
 }
-
  ```
+
+ ## For each expression
+
+ This expression allows us to enumerate over complex data types. Very handy when you are creating multiples of a cloud resource and you want to reduce code repetition.
+
+ ```terraform
+module "bucket" {
+  for_each = toset(["assets", "media"])
+  source   = "./publish_bucket"
+  name     = "${each.key}_bucket"
+}
+ ```
+
+ [For Each Meta-Argument](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)

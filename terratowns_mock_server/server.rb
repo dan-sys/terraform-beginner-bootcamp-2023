@@ -3,13 +3,19 @@ require 'json'
 require 'pry'
 require 'active_model'
 
+# We will mock having a state or database for this dev server
+# by setting a global variable. 
+# NB: You would never use a global variable in a production server
 $home = {}
 
+# This class Home that includes validations from ActiveRecord
+# This will represnt our Home resources as a ruby object
 class Home
+  # ActiveModel is used as an ORM in Ruby on Rails. it can also provide validations
   include ActiveModel::Validations
   attr_accessor :town, :name, :description, :domain_name, :content_version
 
-  validates :town, presence: true
+  validates :town, presence: true, inclusion:{in:['cooker-cove','video-valley','nomad-pad','gamers-groto']}
   validates :name, presence: true
   validates :description, presence: true
   validates :domain_name, 
@@ -19,6 +25,8 @@ class Home
   validates :content_version, numericality: { only_integer: true }
 end
 
+# We are extending a class from Sinatra::Base to 
+# turn this generic class to utilize the Sinatra web-framework
 class TerraTownsMockServer < Sinatra::Base
 
   def error code, message
@@ -40,19 +48,21 @@ class TerraTownsMockServer < Sinatra::Base
   end
 
   def x_access_code
-    '9b49b3fb-b8e9-483c-b703-97ba88eef8e0'
+    return '9b49b3fb-b8e9-483c-b703-97ba88eef8e0'
   end
 
   def x_user_uuid
-    'e328f4ab-b99f-421c-84c9-4ccea042c7d1'
+    return 'e328f4ab-b99f-421c-84c9-4ccea042c7d1'
   end
 
   def find_user_by_bearer_token
     auth_header = request.env["HTTP_AUTHORIZATION"]
+    #check if authorization token exists
     if auth_header.nil? || !auth_header.start_with?("Bearer ")
       error 401, "a1000 Failed to authenicate, bearer token invalid and/or teacherseat_user_uuid invalid"
     end
 
+    #does the token match the one in the database?
     code = auth_header.split("Bearer ")[1]
     if code != x_access_code
       error 401, "a1001 Failed to authenicate, bearer token invalid and/or teacherseat_user_uuid invalid"
@@ -184,5 +194,5 @@ class TerraTownsMockServer < Sinatra::Base
     { message: "House deleted successfully" }.to_json
   end
 end
-
+# this runs the server
 TerraTownsMockServer.run!

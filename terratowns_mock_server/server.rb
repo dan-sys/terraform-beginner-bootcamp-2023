@@ -81,8 +81,10 @@ class TerraTownsMockServer < Sinatra::Base
   post '/api/u/:user_uuid/homes' do
     ensure_correct_headings
     find_user_by_bearer_token
+    # puts will print to the terminal similar to a print statement
     puts "# create - POST /api/homes"
 
+    # begin rescue is just like a try catch block
     begin
       payload = JSON.parse(request.body.read)
     rescue JSON::ParserError
@@ -90,6 +92,7 @@ class TerraTownsMockServer < Sinatra::Base
     end
 
     # Validate payload data
+    # assign the payload to variables
     name = payload["name"]
     description = payload["description"]
     domain_name = payload["domain_name"]
@@ -102,6 +105,7 @@ class TerraTownsMockServer < Sinatra::Base
     puts "content_version #{content_version}"
     puts "town #{town}"
 
+    # creating a new Home model and set the attributes
     home = Home.new
     home.town = town
     home.name = name
@@ -109,12 +113,15 @@ class TerraTownsMockServer < Sinatra::Base
     home.domain_name = domain_name
     home.content_version = content_version
     
+    # ensure our validation checks pass otherwise return the errors
     unless home.valid?
       error 422, home.errors.messages.to_json
     end
 
+    # generating a uuid at random
     uuid = SecureRandom.uuid
     puts "uuid #{uuid}"
+    # mocking a database with a global variable
     $home = {
       uuid: uuid,
       name: name,
@@ -123,7 +130,7 @@ class TerraTownsMockServer < Sinatra::Base
       domain_name: domain_name,
       content_version: content_version
     }
-
+    # will just return uuid
     return { uuid: uuid }.to_json
   end
 
@@ -158,7 +165,6 @@ class TerraTownsMockServer < Sinatra::Base
     # Validate payload data
     name = payload["name"]
     description = payload["description"]
-    domain_name = payload["domain_name"]
     content_version = payload["content_version"]
 
     unless params[:uuid] == $home[:uuid]
@@ -167,9 +173,9 @@ class TerraTownsMockServer < Sinatra::Base
 
     home = Home.new
     home.town = $home[:town]
+    home.domain_name = $home[:domain_name]
     home.name = name
     home.description = description
-    home.domain_name = domain_name
     home.content_version = content_version
 
     unless home.valid?
@@ -190,8 +196,10 @@ class TerraTownsMockServer < Sinatra::Base
       error 404, "failed to find home with provided uuid and bearer token"
     end
 
+    uuid = $home[:uuid]
     $home = {}
-    { message: "House deleted successfully" }.to_json
+    { uuid: uuid}.to_json
+    #{ message: "House deleted successfully" }.to_json
   end
 end
 # this runs the server
